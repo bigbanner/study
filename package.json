@@ -1,0 +1,28 @@
+{
+  "name": "nodehomework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev ./src/index.ts -P tsconfig.json --no-cache",
+    "build": "tsc -P tsconfig.json && node ./dist/index.js",
+    "tslint": "tslint --fix -p tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.12.16",
+    "koa-router": "^7.4.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-static": "^5.0.0"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">用户名</label><input type="text" id="name">
+  <label for="">ID</label><input type="text" id="userId"><span>ID必须为数字</span>
+  <br />
+  <button id="submit">新增</button>
+  <button id="find">查找</button>
+  <p>在控制台查看结果</p>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.js"></script>
+<script>
+  window.onload = function () {
+    let token = ''
+    const submit = document.getElementById('submit')
+    submit.addEventListener('click', function () {
+      const name = document.getElementById('name').value
+      const id = document.getElementById('userId').value
+      axios.post('/adduser', {
+        name,
+        id
+      }).then((res) => {
+        console.log(res.data);
+      })
+    })
+    const find = document.getElementById('find')
+    find.addEventListener('click', function () {
+      const id = document.getElementById('userId').value
+      axios.get('/finduser?id=' + id).then((res) => {
+        console.log(res.data)
+      })
+    })
+
+
+
+  }
+</script>
